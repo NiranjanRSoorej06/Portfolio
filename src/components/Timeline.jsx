@@ -94,12 +94,12 @@ export default function Timeline() {
         className="w-full"
       >
         {/* Section Title */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-10 md:mb-12 px-2">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold mb-2"
+            className="text-3xl md:text-5xl font-bold mb-3 leading-tight"
           >
             My <span className="bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text">Journey</span>
           </motion.h2>
@@ -107,9 +107,9 @@ export default function Timeline() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-gray-400 text-sm md:text-base"
+            className="text-gray-400 text-sm md:text-lg leading-relaxed"
           >
-            Evolution through 8 phases
+            Built with late-night bugs, bold ideas, and lots of coffee ☕✨
           </motion.p>
         </div>
 
@@ -156,8 +156,8 @@ export default function Timeline() {
             {timelineData.map((item, index) => {
               const nodeDelay = index * 0.4;
               const isAbove = index % 2 === 0;
-              const cardWidth = 124;
-              const cardHeight = 72;
+              const cardWidth = 152;
+              const cardHeight = 92;
               const cardHalfWidth = cardWidth / 2;
               const branchHeightBoost = 18;
               const itemDistanceBoost = 36;
@@ -253,14 +253,14 @@ export default function Timeline() {
                       ease: "backOut",
                     }}
                   >
-                    <div className="w-[124px] h-[72px] bg-white/10 backdrop-blur-md rounded-lg px-2.5 py-2 border border-white/15 text-center">
-                      <p className="text-[10px] md:text-xs font-semibold text-white/90 leading-tight">
+                    <div className="w-[152px] h-[92px] bg-white/10 backdrop-blur-md rounded-lg px-3 py-2.5 border border-white/15 text-center flex flex-col justify-center">
+                      <p className="text-xs md:text-sm font-semibold text-white/90 leading-tight">
                         {item.title}
                       </p>
-                      <p className="text-[10px] md:text-xs text-fuchsia-200/85 mt-0.5 leading-tight">
+                      <p className="text-[11px] md:text-xs text-fuchsia-200/85 mt-1 leading-tight">
                         {item.description}
                       </p>
-                      <p className="text-[9px] md:text-[10px] text-gray-300/75 mt-1 leading-tight">
+                      <p className="text-[10px] md:text-[11px] text-gray-300/75 mt-1.5 leading-tight">
                         {item.details}
                       </p>
                     </div>
