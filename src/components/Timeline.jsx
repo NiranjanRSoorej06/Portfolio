@@ -161,7 +161,8 @@ export default function Timeline() {
               const cardHalfWidth = cardWidth / 2;
               const connectorJointY = isAbove ? -68 : 74;
               const boxCenterShiftY = isAbove ? -(cardHeight / 2) : cardHeight / 2;
-              const cardTargetY = connectorJointY + boxCenterShiftY;
+              const bottomUpShift = isAbove ? 0 : cardHeight;
+              const cardTargetY = connectorJointY + boxCenterShiftY - bottomUpShift;
               const cardStartY = cardTargetY + 24;
               const horizontalDirection = isAbove ? 1 : -1;
               
@@ -170,7 +171,10 @@ export default function Timeline() {
               const connectorEndX = horizontalDirection * branchLength;
 
               // Place box so its edge touches the connector
-              const boxX = horizontalDirection * branchLength;
+              const bottomRowShiftX = isAbove ? 0 : -cardHalfWidth;
+              const boxX = isAbove
+                ? horizontalDirection * branchLength
+                : (horizontalDirection * branchLength) - cardHalfWidth + bottomRowShiftX;
               
               const connectorPath = `M 0 0 L 0 ${connectorJointY} L ${connectorEndX} ${connectorJointY}`;
 
