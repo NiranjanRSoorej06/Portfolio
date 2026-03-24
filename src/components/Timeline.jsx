@@ -159,8 +159,12 @@ export default function Timeline() {
               const cardWidth = 124;
               const cardHeight = 72;
               const cardHalfWidth = cardWidth / 2;
-              const connectorJointY = isAbove ? -68 : 74;
-              const boxCenterShiftY = isAbove ? -(cardHeight / 2) : cardHeight / 2;
+              const branchHeightBoost = 18;
+              const itemDistanceBoost = 36;
+              const connectorJointY = isAbove
+                ? -(68 + branchHeightBoost + itemDistanceBoost)
+                : 74 + branchHeightBoost + itemDistanceBoost;
+              const boxCenterShiftY = isAbove ? -(cardHeight / 2) : (cardHeight / 2);
               const bottomUpShift = isAbove ? 0 : cardHeight;
               const cardTargetY = connectorJointY + boxCenterShiftY - bottomUpShift;
               const cardStartY = cardTargetY + 24;
